@@ -1,0 +1,94 @@
+/* ============================================
+   GLASSMORPHISM EFFECTS
+   ============================================ */
+
+.glass-panel {
+    background: rgba(26, 31, 58, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-glass);
+}
+
+.glass-panel-strong {
+    background: rgba(26, 31, 58, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-glass);
+}
+
+.glass-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(0, 255, 255, 0.1),
+            rgba(255, 0, 255, 0.05));
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.glass-border {
+    position: relative;
+}
+
+.glass-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(135deg,
+            rgba(0, 255, 255, 0.5),
+            rgba(255, 0, 255, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.glass-reflection {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-reflection::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.glass-frosted {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-neon {
+    background: rgba(26, 31, 58, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    box-shadow:
+        0 8px 32px 0 rgba(0, 255, 255, 0.15),
+        inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+.glass-neon:hover {
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow:
+        0 8px 32px 0 rgba(0, 255, 255, 0.3),
+        inset 0 0 20px rgba(0, 255, 255, 0.1);
+}

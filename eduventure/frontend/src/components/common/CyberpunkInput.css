@@ -1,0 +1,251 @@
+/* ============================================
+   CYBERPUNK INPUT COMPONENT STYLES
+   ============================================ */
+
+.cyberpunk-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+}
+
+.cyberpunk-input__label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.cyberpunk-input__label .required {
+    color: var(--color-neon-pink);
+    font-size: var(--font-size-sm);
+}
+
+/* ========== INPUT WRAPPER ========== */
+
+.cyberpunk-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.cyberpunk-input-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(0, 255, 255, 0.05),
+            transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cyberpunk-input-wrapper.focused {
+    border-color: var(--color-neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4),
+        inset 0 0 20px rgba(0, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.cyberpunk-input-wrapper.focused::before {
+    opacity: 1;
+}
+
+.cyberpunk-input-wrapper.error {
+    border-color: var(--color-neon-pink);
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+    animation: shake 0.5s ease-in-out;
+}
+
+.cyberpunk-input-wrapper.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(50%);
+}
+
+/* ========== INPUT ICON ========== */
+
+.cyberpunk-input__icon {
+    padding: 0 var(--space-3);
+    color: var(--color-neon-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    transition: all 0.3s ease;
+}
+
+.cyberpunk-input-wrapper.focused .cyberpunk-input__icon {
+    color: var(--color-neon-cyan);
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
+}
+
+.cyberpunk-input-wrapper.error .cyberpunk-input__icon {
+    color: var(--color-neon-pink);
+}
+
+/* ========== INPUT FIELD ========== */
+
+.cyberpunk-input__field {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    outline: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.cyberpunk-input__field::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+}
+
+.cyberpunk-input__field:disabled {
+    cursor: not-allowed;
+}
+
+.cyberpunk-input__field:-webkit-autofill,
+.cyberpunk-input__field:-webkit-autofill:hover,
+.cyberpunk-input__field:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text-primary);
+    -webkit-box-shadow: 0 0 0px 1000px rgba(15, 23, 42, 0.8) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ========== ANIMATED CURSOR ========== */
+
+.cyberpunk-input__cursor {
+    width: 2px;
+    height: 20px;
+    background: var(--color-neon-cyan);
+    margin-right: var(--space-2);
+    box-shadow: 0 0 10px var(--color-neon-cyan);
+    border-radius: 1px;
+}
+
+/* ========== ERROR MESSAGE ========== */
+
+.cyberpunk-input__error {
+    font-size: var(--font-size-xs);
+    color: var(--color-neon-pink);
+    font-family: var(--font-mono);
+    margin: 0;
+    margin-top: var(--space-1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    text-shadow: 0 0 5px rgba(255, 0, 110, 0.5);
+}
+
+.cyberpunk-input__error .error-icon {
+    font-size: var(--font-size-sm);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ========== ANIMATIONS ========== */
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ========== SCAN LINE EFFECT ========== */
+
+.cyberpunk-input-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 255, 255, 0.5),
+            transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: scan-horizontal 2s linear infinite;
+}
+
+.cyberpunk-input-wrapper.focused::after {
+    opacity: 1;
+}
+
+@keyframes scan-horizontal {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+/* ========== FOCUS RING ========== */
+
+.cyberpunk-input-wrapper.focused {
+    position: relative;
+}
+
+.cyberpunk-input-wrapper.focused::before {
+    animation: border-pulse 2s ease-in-out infinite;
+}
+
+@keyframes border-pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}

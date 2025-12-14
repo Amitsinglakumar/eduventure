@@ -1,0 +1,197 @@
+/* ============================================
+   CYBERPUNK DESIGN SYSTEM - CSS VARIABLES
+   ============================================ */
+
+:root {
+  /* ========== PRIMARY NEON COLORS ========== */
+  --color-neon-cyan: #00ffff;
+  --color-neon-magenta: #ff00ff;
+  --color-neon-purple: #bf00ff;
+  --color-neon-green: #00ff41;
+  --color-neon-pink: #ff006e;
+  --color-neon-blue: #0066ff;
+
+  /* ========== DARK BACKGROUNDS ========== */
+  --color-dark-bg: #0a0e27;
+  --color-dark-surface: #1a1f3a;
+  --color-dark-card: #151b2f;
+  --color-dark-overlay: rgba(10, 14, 39, 0.95);
+
+  /* ========== TEXT COLORS ========== */
+  --color-text-primary: #e0e6ff;
+  --color-text-secondary: #8892b0;
+  --color-text-accent: #00ffff;
+  --color-text-muted: #64748b;
+
+  /* ========== GRADIENTS ========== */
+  --gradient-neon-cyan-pink: linear-gradient(135deg, #00ffff, #ff006e);
+  --gradient-neon-purple-pink: linear-gradient(135deg, #bf00ff, #ff00ff);
+  --gradient-neon-green-cyan: linear-gradient(135deg, #00ff41, #00ffff);
+  --gradient-dark-to-light: linear-gradient(180deg, #0a0e27, #1a1f3a);
+  --gradient-radial-dark: radial-gradient(circle at center, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.8) 100%);
+
+  /* ========== TYPOGRAPHY ========== */
+  --font-primary: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-display: 'Space Grotesk', 'Orbitron', 'Rajdhani', sans-serif;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 2rem;        /* 32px */
+  --font-size-4xl: 2.5rem;      /* 40px */
+  --font-size-5xl: 3rem;        /* 48px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+
+  /* ========== SPACING SYSTEM ========== */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* ========== BORDER RADIUS ========== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ========== SHADOWS ========== */
+  --shadow-neon-cyan: 0 0 20px rgba(0, 255, 255, 0.6);
+  --shadow-neon-magenta: 0 0 20px rgba(255, 0, 255, 0.6);
+  --shadow-neon-pink: 0 0 20px rgba(255, 0, 110, 0.6);
+  --shadow-neon-green: 0 0 20px rgba(0, 255, 65, 0.6);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 255, 255, 0.1);
+  --shadow-elevation-1: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-elevation-2: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-elevation-3: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  /* ========== Z-INDEX SCALE ========== */
+  --z-base: 1;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+
+  /* ========== TRANSITIONS ========== */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-slower: 0.8s ease;
+
+  /* ========== BACKDROP BLUR ========== */
+  --blur-sm: blur(4px);
+  --blur-md: blur(8px);
+  --blur-lg: blur(12px);
+  --blur-xl: blur(16px);
+}
+
+/* ========== GLOBAL CYBERPUNK STYLES ========== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--color-dark-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-neon-cyan), var(--color-neon-purple));
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-dark-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-neon-magenta), var(--color-neon-pink));
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: var(--color-text-primary);
+}
+
+::-moz-selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* Utility Classes */
+.cyberpunk-title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extra-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neon-cyan);
+}
+
+.cyberpunk-subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.neon-text-cyan {
+  color: var(--color-neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+               0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.neon-text-magenta {
+  color: var(--color-neon-magenta);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.8),
+               0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.neon-text-pink {
+  color: var(--color-neon-pink);
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.8),
+               0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+.neon-text-green {
+  color: var(--color-neon-green);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8),
+               0 0 20px rgba(0, 255, 65, 0.5);
+}

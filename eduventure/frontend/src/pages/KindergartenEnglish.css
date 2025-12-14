@@ -1,0 +1,440 @@
+.english-module-body {
+    font-family: 'Fredoka', 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    /* Ensure it takes full height of parent if nested */
+    height: 100%;
+}
+
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.main-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    overflow-y: auto;
+    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.english-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px dashed #FFD700;
+}
+
+.english-header h1 {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.emoji-animation {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 0.5rem;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.section-container {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 1200px;
+}
+
+.learning-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 4px solid #FFD700;
+    color: #333;
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.learning-card h2 {
+    color: #f5576c;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.learning-card h3 {
+    color: #667eea;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.activity-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid white;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.activity-item .icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.letter-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 0.8rem;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 3px solid white;
+}
+
+.letter-card:hover {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.letter-card.active {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    box-shadow: 0 0 20px #FFD700;
+    transform: scale(1.2);
+}
+
+.word-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.5rem;
+}
+
+.word-list li {
+    padding: 0.8rem;
+    margin: 0;
+    background: white;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+}
+
+.word-list li:hover {
+    background: #e0e7ff;
+    transform: translateX(5px);
+}
+
+.voice-button {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.voice-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.voice-button:active {
+    transform: scale(0.95);
+}
+
+.progress-bar {
+    background: #e0e7ff;
+    border-radius: 10px;
+    height: 20px;
+    margin: 1rem 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.xp-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0.5rem;
+}
+
+.flashcard-container {
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 1rem auto;
+    max-width: 400px;
+    height: 250px;
+}
+
+.flashcard {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border: 4px solid white;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard.clicked .flashcard {
+    transform: rotateY(180deg);
+}
+
+.quiz-container {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 1rem 0;
+    border: 3px solid #e2e8f0;
+}
+
+.quiz-question {
+    font-size: 1.3rem;
+    color: #475569;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.quiz-option {
+    background: white;
+    border: 2px solid #cbd5e1;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    color: #334155;
+}
+
+.quiz-option:hover {
+    background: #e0e7ff;
+    border-color: #667eea;
+    color: #4338ca;
+}
+
+.quiz-option.correct {
+    background: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+
+.quiz-option.incorrect {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: white;
+}
+
+.reward-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: popUp 1.5s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes popUp {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -200%) scale(1);
+        opacity: 0;
+    }
+}
+
+.celebration-text {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #FFD700;
+    -webkit-text-stroke: 1px #b45309;
+}
+
+.tab-menu {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-button {
+    background: white;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.tab-button:hover {
+    background: #e0e7ff;
+    transform: translateY(-2px);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Scrollbar styles for the main content */
+.main-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .english-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .learning-card {
+        padding: 1.5rem;
+    }
+
+    .letter-grid {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    }
+
+    .celebration-text {
+        font-size: 2rem;
+    }
+}

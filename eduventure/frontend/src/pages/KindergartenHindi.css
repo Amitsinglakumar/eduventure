@@ -1,0 +1,342 @@
+/* Scoped to .hindi-module-body to avoid global conflicts */
+.hindi-module-body {
+    font-family: 'Fredoka', 'Devanagari Sans', sans-serif;
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    /* Ensure it takes full height of parent */
+    height: 100%;
+}
+
+.hindi-module-body .canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hindi-module-body .main-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    overflow-y: auto;
+    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hindi-module-body .header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px dashed #FFD700;
+}
+
+.hindi-module-body .header h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hindi-module-body .emoji-animation {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 0.5rem;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hindi-module-body .section-container {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 1200px;
+}
+
+.hindi-module-body .learning-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 4px solid #FFD700;
+}
+
+.hindi-module-body .learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hindi-module-body .learning-card h2 {
+    color: #f5576c;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hindi-module-body .learning-card h3 {
+    color: #667eea;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.hindi-module-body .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.hindi-module-body .activity-item {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.hindi-module-body .activity-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hindi-module-body .activity-item .icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hindi-module-body .letter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.hindi-module-body .letter-card {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 3px solid white;
+}
+
+.hindi-module-body .letter-card:hover {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hindi-module-body .letter-card.active {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    box-shadow: 0 0 20px #FFD700;
+    transform: scale(1.2);
+}
+
+.hindi-module-body .voice-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.hindi-module-body .voice-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hindi-module-body .progress-bar {
+    background: #e0e7ff;
+    border-radius: 10px;
+    height: 20px;
+    margin: 1rem 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.hindi-module-body .progress-fill {
+    background: linear-gradient(90deg, #f5576c 0%, #f093fb 100%);
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.hindi-module-body .xp-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #f5576c;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0.5rem;
+}
+
+.hindi-module-body .tab-menu {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hindi-module-body .tab-button {
+    background: white;
+    border: 3px solid #f5576c;
+    color: #f5576c;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.hindi-module-body .tab-button:hover {
+    background: #f5576c;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.hindi-module-body .tab-button.active {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    color: white;
+}
+
+.hindi-module-body .word-list {
+    list-style: none;
+    padding: 1rem;
+    background: #ffe0e6;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.hindi-module-body .word-list li {
+    padding: 0.8rem;
+    margin: 0;
+    background: white;
+    border-radius: 10px;
+    border-left: 5px solid #f5576c;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hindi-module-body .word-list li:hover {
+    background: #ffe0e6;
+    transform: translateX(5px);
+}
+
+.hindi-module-body .reward-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: popUp 1.5s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes popUp {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -200%) scale(1);
+        opacity: 0;
+    }
+}
+
+.hindi-module-body .celebration-text {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #FFD700;
+    -webkit-text-stroke: 1px #b45309;
+}
+
+/* Scrollbar styles */
+.hindi-module-body .main-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.hindi-module-body .main-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hindi-module-body .main-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.hindi-module-body .main-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .hindi-module-body .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .hindi-module-body .learning-card {
+        padding: 1.5rem;
+    }
+
+    .hindi-module-body .letter-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+}
